@@ -19,14 +19,14 @@ export default function App() {
       const matchSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.category.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchPrice = p.price >= priceRange.min && p.price <= priceRange.max;
+      const matchPrice = p.price >= priceRange.min && p.price < priceRange.max;
       const matchCategory = category === 'All' || p.category === category;
       return matchSearch && matchPrice && matchCategory;
     });
 
     switch (sortBy) {
-      case 'price-asc': list = [...list].sort((a, b) => a.price - b.price); break;
-      case 'price-desc': list = [...list].sort((a, b) => b.price - a.price); break;
+      case 'price-asc': list = [...list].sort((a, b) => b.price - a.price); break;
+      case 'price-desc': list = [...list].sort((a, b) => a.price - b.price); break;
       case 'rating': list = [...list].sort((a, b) => b.rating - a.rating); break;
       case 'name': list = [...list].sort((a, b) => a.name.localeCompare(b.name)); break;
       default: break;
