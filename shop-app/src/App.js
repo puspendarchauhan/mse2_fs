@@ -25,8 +25,8 @@ export default function App() {
     });
 
     switch (sortBy) {
-      case 'price-asc': list = [...list].sort((a, b) => b.price - a.price); break;
-      case 'price-desc': list = [...list].sort((a, b) => a.price - b.price); break;
+      case 'price-asc': list = [...list].sort((a, b) => a.price - b.price); break;
+      case 'price-desc': list = [...list].sort((a, b) => b.price - a.price); break;
       case 'rating': list = [...list].sort((a, b) => b.rating - a.rating); break;
       case 'name': list = [...list].sort((a, b) => a.name.localeCompare(b.name)); break;
       default: break;
